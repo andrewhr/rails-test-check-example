@@ -1,0 +1,6 @@
+<li class="<%= "debt" if entry.value < 0 %>">
+  <%= number_to_currency(entry.value, negative_format: "(%u%n)") %>
+  <%= link_to "Remove", entry, method: :delete,
+    class: "glyphicon glyphicon-trash",
+    data: { confirm: "Are you sure?" } %>
+</li>

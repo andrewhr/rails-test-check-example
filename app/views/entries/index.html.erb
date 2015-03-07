@@ -1,0 +1,19 @@
+<h1>Money Track&trade;</h1>
+
+<%= form_for(@entry, html: { class: "form-inline" }) do |f| %>
+  <div class="form-group">
+    <%= f.label "Money Amount", for: :value, class: "sr-only" %>
+    <div class="input-group">
+      <div class="input-group-addon">$</div>
+      <%= f.text_field :value, class: "form-control", placeholder: "Amount" %>
+    </div>
+  </div>
+  <%= f.submit "Track", class: "btn btn-primary" %>
+<% end %>
+
+<ul id="entries" class="list-unstyled">
+  <%= render @entries %>
+  <li id="total">
+    <%= number_to_currency @entries.sum(:value) %>
+  </li>
+</ul>
